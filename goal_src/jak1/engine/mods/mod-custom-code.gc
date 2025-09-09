@@ -1135,6 +1135,7 @@
 
   ;; check if player is near geyser vent and wants a hint
   (when (and *target* (or (in-bubble-m? -1311.39   6.77 1056.64  5.0) (in-bubble-m? -1418.61   3.81 1010.54  5.0))
+             (< (-> *game-info* money) 2000)
              (not (logtest? (-> *target* state-flags) (state-flags being-attacked dying)))
              (>= *outrag-event-idx* 2) ;; only after geyser sections
              (not (is-sound-playing "")) ;; wait for any sounds to finish
